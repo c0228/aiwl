@@ -19,3 +19,4 @@ PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent
 PYCACHE_DIR = PROJECT_ROOT / "__pycache__"
 CONTROLLER_ROOT = PROJECT_ROOT / "src" / "controller"
 RPI_ROOT = PROJECT_ROOT / "rpi"
+LOG_DIR = PROJECT_ROOT / "logs"

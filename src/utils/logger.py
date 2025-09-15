@@ -12,6 +12,7 @@
 ##                                                                                                                          ##
 ##############################################################################################################################
 
+from pathlib import Path 
 from datetime import datetime # Imports the datetime class so you can get the current date/time for timestamps.
 import threading  # you create and control threads—independent lines of execution inside a single Python process.   
 import os # general OS utilities (checking/removing files).
@@ -31,10 +32,8 @@ _log_lock = threading.Lock()                # <-- NEW: global lock
 # ---------------- Utility Logging ----------------
 def log_message(logId: str, message: str):
     """Append a message to the chosen log file with a timestamp."""
-    logPath = LOG_FILES[logId]
-
-    # Make sure parent directory exists
-    os.makedirs(logPath.parent, exist_ok=True)
+    logPath: Path = LOG_FILES[logId]            # Path object
+    os.makedirs(os.path.dirname(logPath), exist_ok=True)   # Path-friendly mkdir
 
     timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     line = f"[{timestamp}] {message}\n"
