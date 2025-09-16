@@ -1,0 +1,61 @@
+##############################################################################################################################
+##                                                                                                                          ##
+##      ------------------------------------------------                                                                    ##
+##      DashboardController.py:                                                                                             ##
+##      ------------------------------------------------                                                                    ##
+##          1) Creates a HTTP Server based web app.                                                                         ##
+##          2) Logs each visit to the root URL.                                                                             ##
+##          3) Serves it through Waitress on port 5999, accessible from any machine on the network.                         ##                         ##
+##                                                                                                                          ##
+##############################################################################################################################
+
+import sys # to read command-line arguments (sys.argv).
+import os, time # general OS utilities (checking/removing files).
+from src.utils.api_auth import requires_auth
+from src.settings.constants import PROJECT_ROOT, LOG_DIR
+from src.utils.logger import HTTP_LOG_ID, STT_LOG_ID, LOG_FILES, log_message
+from flask import Flask, render_template, request, Response # a lightweight Python web framework for defining routes and handling HTTP requests.
+import waitress # a production-ready WSGI server that actually serves the Flask application to the network.
+
+# Create Flask app - Initializes a Flask application object.
+# __name__ tells Flask where to look for templates, static files, etc.
+app = Flask(__name__, 
+            template_folder=os.path.join(PROJECT_ROOT, "templates"),
+            static_folder=os.path.join(PROJECT_ROOT, "static"))
+
+# Define route for homepage
+# @app.route("/") maps the root URL (/) to the hello function.
+# When a browser requests http://<host>:5999/, Flask runs hello().
+# Inside:
+#   1) Logs the visit using your logger with the HTTP log ID.
+#   2) Returns a simple text response "Hello, World!".
+
+# ----------------------------------------------------------------------
+@app.route("/")
+def hello():
+    log_message(HTTP_LOG_ID, "Triggered Basic Route - Hello World")
+    return "Hello, World!"
+
+# ----------------------------------------------------------------------
+@app.route("/logs/<filename>")
+@requires_auth # 
+def show_log(filename):
+    path = os.path.join(LOG_DIR, filename+'.log')
+    if not os.path.exists(path):
+        return f"{filename} not found", 404
+
+    with open(path, "r", encoding="utf-8") as f:
+        content = f.read()
+
+    return render_template("logs-stream.html", log_name=filename, log_content=content)
+# ----------------------------------------------------------------------
+
+@app.route("/index")
+def index():
+    log_message(HTTP_LOG_ID, "Triggered Basic Route - Index")
+    return render_template("index.html")
+
+# Run server
+if __name__ == "__main__":
+    # Bind to 0.0.0.0 so it’s accessible in browser
+    waitress.serve(app, host="0.0.0.0", port=5999)

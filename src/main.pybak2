@@ -51,10 +51,10 @@ def start_server():
             # Stdout/stderr redirected to the HTTP log.
             # Records the child PID in a file for future stopping.
             process = subprocess.Popen(
-                ["python", str(WEBROUTES_PATH)],
+                [sys.executable, str(WEBROUTES_PATH)],
                 stdout=log_file,
                 stderr=subprocess.STDOUT,
-                creationflags=subprocess.CREATE_NEW_PROCESS_GROUP  # better for Windows
+                creationflags=subprocess.DETACHED_PROCESS
             )
             with open(PID_FILE, "w") as f:
                 f.write(str(process.pid))

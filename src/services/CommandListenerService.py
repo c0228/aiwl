@@ -1,7 +1,7 @@
 ##############################################################################################################################
 ##                                                                                                                          ##
 ##      ------------------------------------------------                                                                    ##
-##      AppMeetingListener.py:                                                                                              ##
+##      CommandListenerService.py:                                                                                          ##
 ##      ------------------------------------------------                                                                    ##
 ##          1) Captures live audio from a system or microphone.                                                             ##
 ##          2) Queues audio frames from the sounddevice callback.                                                           ##
@@ -21,7 +21,7 @@ import numpy as np # audio arrays from sounddevice.
 from src.utils.logger import STT_LOG_ID, log_message # Our own helper to write logs (tagged with STT_LOG_ID).
 
 
-class AppMeetingListener:
+class CommandListenerService:
     # Holds all logic for capturing audio and recognizing speech.
     # model_path – folder containing the Vosk model files.
     # sample_rate – audio sampling rate (16 kHz is standard for speech)
@@ -141,7 +141,7 @@ class AppMeetingListener:
 
 if __name__ == "__main__":
     # When run directly, creates a listener using a specific Vosk model folder.
-    listener = AppMeetingListener("model/vosk-model-small-en-us-0.15")
+    listener = CommandListenerService("model/vosk-model-small-en-us-0.15")
 
     # Try auto-select Stereo Mix
     # First tries to grab “Stereo Mix” automatically for system-wide audio.
