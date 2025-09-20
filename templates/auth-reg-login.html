@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>IWLAB Server</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<style>
+.mt3p { margin-top:3px; }
+.fs12 { font-size:12px; }
+.fs14 { font-size:14px; }
+.dropzone-template { display:flex;flex-direction:column;flex:1;border: 2px dashed #ccc;height:315px;justify-content:center;text-align:center;border-radius:25px; }
+.dropzone.dragover { background: #f8f9fa;border-color: #0d6efd; }
+.font-red { color:red; }
+#mod_register_states { display:none; }
+.invalid-form { border: 1px solid red; }
+.valid-form { border: 1px solid #07c507; }
+</style>
+<script type="text/javascript">
+$(document).ready(function(){
+	load_countries_list('register_countries');
+});
+
+function api_executor(url, func){
+ fetch(url)
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Network response was not ok ' + response.statusText);
+    }
+    return response.json(); // parse JSON response
+  })
+  .then(data => { 
+	func(data);
+  });
+}
+
+function load_select_options(id, label, data){
+ let content = '<option value="">'+label+'</option>';
+	for(let i=0;i<data.length;i++){
+		content+='<option value="'+data[i]+'">'+data[i]+'</option>';
+	}
+	document.getElementById(id).innerHTML = content;
+}
+
+function load_countries_list(id){
+ api_executor('http://localhost/apis/get/countries/list',(data)=>{
+	load_select_options('register_countries', 'Select your Country', data);
+ });
+}
+
+function load_states_list(){
+ const country = document.getElementById("register_countries").value;
+ const status = (country.length>0)?'block':'none';
+ document.getElementById("mod_register_states").style.display = status;
+ api_executor('http://localhost/apis/get/'+country+'/states',(data)=>{
+	document.getElementById("register_mobile_index").innerHTML = data?.["tel_index"];
+	load_select_options('register_states', 'Select your State', data?.["states"]);
+ });
+}
+
+function load_form_alert(id,type,data){
+ let content='<div class="alert alert-'+type+' alert-dismissible">';
+	content+='<button type="button" class="btn-close" data-bs-dismiss="alert"></button>';
+	content+=data;
+	content+='</div>';
+ document.getElementById(id).innerHTML = content;
+}
+
+function resetAccountValidations(){
+  document.getElementById('register_form_alert').innerHTML = '';
+  $('#register_name').removeClass('valid-form'); $('#register_name').removeClass('invalid-form');
+  $('#register_countries').removeClass('valid-form'); $('#register_countries').removeClass('invalid-form');
+  $('#register_states').removeClass('valid-form'); $('#register_states').removeClass('invalid-form');
+  $('#register_mobile_index').removeClass('valid-form'); $('#register_mobile_index').removeClass('invalid-form');
+  $('#register_mobile').removeClass('valid-form'); $('#register_mobile').removeClass('invalid-form');
+}
+
+function createAnAccount(){
+ const name = document.getElementById("register_name").value;
+ const country = document.getElementById("register_countries").value;
+ const state = document.getElementById("register_states").value;
+ const mobile = document.getElementById("register_mobile").value;
+ resetAccountValidations();
+ if(name.length>0 && country?.length>0 && state?.length>0 && mobile?.length>0){
+	$('#register_name').addClass('valid-form');
+	$('#register_countries').addClass('valid-form');
+	$('#register_states').addClass('valid-form');
+	$('#register_mobile_index').addClass('valid-form');
+	$('#register_mobile').addClass('valid-form');
+	
+	load_form_alert('register_form_alert', 'success', '<strong>Success!</strong> Account created Successfully');
+	setTimeout(()=>{
+		alert("Redirect");
+		// Create an Account in PHP/MySQL Database Server
+		// Create a ""DataFolder"" with Account Details File
+	},1000);
+ } else {
+	let missingData='Missing';
+	if(name.length===0){ $('#register_name').addClass('invalid-form');missingData+=' Name /'; }
+	else {
+		$('#register_name').addClass('valid-form');
+	}
+	if(country?.length===0){ $('#register_countries').addClass('invalid-form');missingData+=' Country /'; }
+	else {
+		$('#register_countries').addClass('valid-form');
+		if(state?.length===0){ $('#register_states').addClass('invalid-form');missingData+=' State /'; }
+		else { $('#register_states').addClass('valid-form'); }
+		if(mobile?.length===0){ $('#register_mobile_index').addClass('invalid-form');$('#register_mobile').addClass('invalid-form');missingData+=' Mobile /'; }
+		else { 
+			$('#register_mobile_index').addClass('valid-form');
+			$('#register_mobile').addClass('valid-form');
+		}
+	}
+	load_form_alert('register_form_alert', 'danger', '<strong>Error!</strong> '+missingData.substring(0,missingData.length-1).trim());
+ }	
+}
+</script>
+</head>
+<body class="fs14">
+	{% include "components/header.html" %}
+	<div class="container-fluid py-4">
+	<div class="row">
+		<div class="col-md-2"></div>
+		<div class="col-md-4">
+			<h4>Register an Account</h4><hr/>
+			
+			<div id="register_form_alert" class="mb-3 mt-3"></div>
+			
+			<div class="mb-3 mt-3">
+				<div for="register_name" class="form-label"><b>Name:</b> <span class="font-red fs12 mt3p float-end"><i>Required</i></span></div>
+				<input type="text" class="form-control" id="register_name" placeholder="Enter your Name">
+			</div>
+			
+			<div class="mb-3 mt-3">
+				<div for="register_countries" class="form-label"><b>Country:</b> <span class="font-red fs12 mt3p float-end"><i>Required</i></span></div>
+				<select class="form-select" id="register_countries" onchange="javascript:load_states_list()"></select>
+			</div>
+			
+			<div id="mod_register_states">
+			<div class="mb-3 mt-3">
+				<div for="register_states" class="form-label"><b>State:</b> <span class="font-red fs12 mt3p float-end"><i>Required</i></span></div>
+				<select class="form-select" id="register_states"></select>
+			</div>
+			
+			<div class="mb-3 mt-3">
+				<div for="register_mobile" class="form-label"><b>Mobile:</b> <span class="font-red fs12 mt3p float-end"><i>Required</i></span></div>
+				<div class="input-group">
+					<span class="input-group-text" id="register_mobile_index"></span>
+					<input type="tel" class="form-control" id="register_mobile" 
+						oninput="this.value = this.value.replace(/[^0-9]/g,'');" 
+						placeholder="Enter your Mobile Number">
+				</div>
+			</div>
+			</div>
+			
+			<button type="submit" class="btn btn-primary fs14 float-end" onclick="javascript:createAnAccount()"><b>Create an Account</b></button>
+		</div>
+		<div class="col-md-4">
+			<h4>Login into your Account</h4><hr/>
+			<div>
+				<div id="dropzone" class="dropzone">
+				<div class="dropzone-template">
+				To login into your Account,
+				Drop <b>IWLAB FILE</b> here or click to select
+				</div>
+				
+				<input id="fileInput" type="file" multiple hidden>
+				</div>
+				<ul id="fileList" class="list-group mb-3"></ul>
+				<button id="uploadBtn" class="btn btn-primary float-end" disabled>Upload</button>
+			</div>
+		</div>
+		<div class="col-md-2"></div>
+	</div>
+	</div><!--/.container-fluid -->
+</body>
+</html>

@@ -8,6 +8,11 @@ def hello():
     log_message(HTTP_LOG_ID, "Triggered Basic Route - Hello World")
     return "Hello, World!"
 
+@dashboard_bp.route("/auth/init")
+def authenticate():
+    log_message(HTTP_LOG_ID, "Triggered Basic Route - Hello World")
+    return render_template("auth-reg-login.html")
+
 @dashboard_bp.route("/index")
 def index():
     log_message(HTTP_LOG_ID, "Triggered Basic Route - Index")
