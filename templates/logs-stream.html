@@ -8,7 +8,7 @@
     <!-- Bootstrap JS (optional, for components like modal/dropdown) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="{{ url_for('static', filename='js/utils.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/utils.js', _external=True) }}"></script>
     <style>
       pre { padding:15px;border:1px solid #ccc;height:660px; }
       #current_ts { font-size: 16px;padding-top: 8px;color: #888; }

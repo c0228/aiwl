@@ -8,10 +8,6 @@ vf_bp = Blueprint("vf", __name__)
 UPLOAD_FOLDER = "uploads"
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
-@vf_bp.route("/auth/footage-reference")
-def footageReference():
-    log_message(HTTP_LOG_ID, "Triggered Basic Route - Hello World")
-    return render_template("auth-ref-footage.html")
 
 @vf_bp.route("/vf/upload", methods=["POST"])
 def upload():
