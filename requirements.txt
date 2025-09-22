@@ -13,7 +13,6 @@ numpy=2.3.3
 pyttsx3=2.99
 pycaw=20240210
 comtypes=1.4.12
-
-
+cryptography=46.0.1
 
 

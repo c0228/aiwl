@@ -14,6 +14,7 @@ from pathlib import Path # convenient, cross-platform path handling.
 APP_ID = "iwlab"
 APP_NAME = "IWLab"
 APP_VERSION = "1.0.0"
+APP_EXT = ".iwl" # App Extension
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent
 PYCACHE_DIR = PROJECT_ROOT / "__pycache__"
