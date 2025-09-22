@@ -8,38 +8,23 @@
 <link rel="stylesheet" href="{{ url_for('static', filename='css/commons.css', _external=True) }}">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="{{ url_for('static', filename='js/utils.js', _external=True) }}"></script>
+<script>
+$(document).ready(function(){
+    load_countries_list('createProfile_country');
+});
+</script>
 </head>
 <body class="fs14">
     {% include "components/header.html" %}
     <div class="container-fluid" style="padding-top:10px;padding-left:25px;padding-right:25px;">
         <div class="row mt-1">
             <div class="col-md-12"><h4>Create a Profile</h4><hr/></div>
+            <div style="color:#555;"><i>Thinking! <u>Create Profile Form</u> is bigger. Don't worry, you can fill few things and can be saved using 
+                <u>"Save Details Button"</u>. Once all the data is submitted, then you can use this Profile for Live Meetings.
+            </i></div>
         </div>
-        <div class="row">
-            <div class="col-md-4">
-                <!-- -->
-                <div id="createProfiles_form_alert" class="mb-3 mt-3"></div>
-                
-                <div class="mb-3 mt-3">
-                    <div for="createProfiles_name" class="form-label"><b>Name:</b>
-                        <span class="font-red fs12 mt3p float-end"><i>[Required Field]</i></span> 
-                    </div>
-                    <input type="text" class="form-control" id="createProfile_name" placeholder="Enter your Name">
-                </div>
-                <!-- -->
-            </div>
-            <div class="col-md-4">
-                <div class="mb-3 mt-3">
-                    <div for="createProfiles_name" class="form-label"><b>Country:</b>
-                        <span class="font-red fs12 mt3p float-end"><i>[Required Field]</i></span> 
-                    </div>
-                    <input type="text" class="form-control" id="createProfile_country" placeholder="Enter your Name">
-                </div>
-            </div>
-            <div class="col-md-4">
-
-            </div>
-        </div><!--/.row -->
+        {% include "components/profile/personal-details.html" %}
         <div class="row mt-3">
             <div class="col-md-12">
                 <!-- -->
