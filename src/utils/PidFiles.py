@@ -6,7 +6,7 @@ import subprocess # to spawn new processes (starting server/listener).
 import os # general OS utilities (checking/removing files).
 
 from src.settings.constants import APP_ID, APP_NAME, APP_VERSION, PROJECT_ROOT, ROUTE_ROOT, CONTROLLER_ROOT, RPI_ROOT
-from src.utils.logger import HTTP_LOG_ID, STT_LOG_ID, LOG_FILES
+from src.utils.Logger import HTTP_LOG_ID, STT_LOG_ID, LOG_FILES
 
 # ---------------- Generic Process Stop ----------------
 def stop_process(pid_file, name):

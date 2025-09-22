@@ -19,7 +19,7 @@ import os # general OS utilities (checking/removing files).
 
 from src.utils.PidFiles import stop_process
 from src.settings.constants import APP_ID, SERVICES_ROOT, RPI_ROOT
-from src.utils.logger import HTTP_LOG_ID, STT_LOG_ID, LOG_FILES, log_message
+from src.utils.Logger import HTTP_LOG_ID, STT_LOG_ID, LOG_FILES, log_message
 
 # Initializes colorama so Windows & Unix terminals handle color codes.
 # autoreset=True means you don’t need to manually reset the color each time.

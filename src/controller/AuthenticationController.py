@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template
-from src.utils.logger import log_message, HTTP_LOG_ID
+from src.utils.Logger import log_message, HTTP_LOG_ID
 
 auth_bp = Blueprint("auth", __name__)
 

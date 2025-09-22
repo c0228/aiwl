@@ -1,5 +1,5 @@
 from flask import Blueprint, jsonify
-from src.utils.logger import log_message, HTTP_LOG_ID
+from src.utils.Logger import log_message, HTTP_LOG_ID
 from src.routes.CommandRoutes import start_server, stop_server
 
 commandListener_bp = Blueprint("commandListener", __name__)

@@ -1,5 +1,5 @@
 from flask import Blueprint, Flask, request, send_from_directory, render_template, jsonify
-from src.utils.logger import log_message, HTTP_LOG_ID
+from src.utils.Logger import log_message, HTTP_LOG_ID
 from src.utils.VFUtils import convert_webm_to_mp4, convert_mp4_to_wav
 import os
 import uuid

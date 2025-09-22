@@ -18,7 +18,7 @@ import sounddevice as sd # records live audio from any input device.
 import vosk # offline speech-to-text engine.
 import json # parse recognizer output.
 import numpy as np # audio arrays from sounddevice.
-from src.utils.logger import STT_LOG_ID, log_message # Our own helper to write logs (tagged with STT_LOG_ID).
+from src.utils.Logger import STT_LOG_ID, log_message # Our own helper to write logs (tagged with STT_LOG_ID).
 
 
 class CommandListenerService:
