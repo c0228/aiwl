@@ -16,6 +16,8 @@ APP_NAME = "IWLab"
 APP_VERSION = "1.0.0"
 APP_EXT = ".iwl" # App Extension
 
+SECRET_KEY_FILE = "data/"+APP_ID+"-secret.enc"+APP_EXT
+
 PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent
 PYCACHE_DIR = PROJECT_ROOT / "__pycache__"
 ROUTE_ROOT = PROJECT_ROOT / "src" / "routes"

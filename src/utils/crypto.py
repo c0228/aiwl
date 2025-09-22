@@ -1,21 +1,20 @@
 import json
 import os
 from cryptography.fernet import Fernet
-
-KEY_FILE = "rpi/secret.key"
+from src.settings.constants import SECRET_KEY_FILE
 
 # -------- Key Handling --------
 def generate_key():
     """Generate a key if it doesn't exist."""
-    if not os.path.exists(KEY_FILE):
+    if not os.path.exists(SECRET_KEY_FILE):
         key = Fernet.generate_key()
-        with open(KEY_FILE, "wb") as f:
+        with open(SECRET_KEY_FILE, "wb") as f:
             f.write(key)
     return load_key()
 
 def load_key() -> bytes:
     """Load the key from disk."""
-    with open(KEY_FILE, "rb") as f:
+    with open(SECRET_KEY_FILE, "rb") as f:
         return f.read()
 
 # -------- Encryption --------
