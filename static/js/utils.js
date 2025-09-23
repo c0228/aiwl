@@ -11,6 +11,29 @@ function getCurrentTimestampFormatted() {
   return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
 }
 
+function load_modal(id, heading, body){
+  let content='<!-- The Modal -->';
+    content+='<div class="modal" id="'+id+'-template">';
+    content+='<div class="modal-dialog">';
+    content+='<div class="modal-content">';
+    content+='<!-- Modal Header -->';
+    content+='<div class="modal-header">';
+    content+='<h5 class="modal-title">'+heading+'</h5>';
+    content+='<button type="button" class="btn-close" data-bs-dismiss="modal"></button>';
+    content+='</div>';
+    content+='<!-- Modal body -->';
+    content+='<div class="modal-body">'+body+'</div>';
+    content+='</div>';
+    content+='</div>';
+    content+='</div>';
+  document.getElementById(id).innerHTML = content;
+}
+function open_modal(id){
+  const modalEl = document.getElementById(id+'-template');
+  const bsModal = new bootstrap.Modal(modalEl, {backdrop: 'static'});
+  bsModal.show();
+}
+
 function api_executor(url, func){
  fetch(url)
   .then(response => {

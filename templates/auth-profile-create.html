@@ -9,13 +9,17 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script src="{{ url_for('static', filename='js/utils.js', _external=True) }}"></script>
+<style>
+#createProfile_states_module { display:none; }
+</style>
 <script>
 $(document).ready(function(){
-    load_countries_list('createProfile_country');
+    load_countries_list('createProfile');
 });
 </script>
 </head>
 <body class="fs14">
+    <div id="createProfile-display-modal"></div>
     {% include "components/header.html" %}
     <div class="container-fluid" style="padding-top:10px;padding-left:25px;padding-right:25px;">
         <div class="row mt-1">
@@ -25,17 +29,8 @@ $(document).ready(function(){
             </i></div>
         </div>
         {% include "components/profile/personal-details.html" %}
-        <div class="row mt-3">
-            <div class="col-md-12">
-                <!-- -->
-                <div class="card">
-                    <div class="card-body">
-                        <h5>Educational Details</h5><hr/>
-                    </div>
-                </div>
-                <!-- -->
-            </div>
-        </div><!--/.row -->
+        {% include "components/profile/edu-details.html" %}
+    
         <div class="row mt-3">
             <div class="col-md-12">
                 <!-- -->

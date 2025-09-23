@@ -1,6 +1,7 @@
 body { background-color: #f1f1f1; }
-.app-details-form { background-color:#e8e5e5; }
+.app-details-form { background-color:#fbfbfb; }
 .mt3p { margin-top:3px; }
 .fs12 { font-size:12px; }
 .fs14 { font-size:14px; }
 .font-red { color:red; }
+.curpoint { cursor:pointer; }

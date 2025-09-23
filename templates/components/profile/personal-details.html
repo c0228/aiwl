@@ -18,25 +18,7 @@
             </div><!--/.col-md-4 -->
             <div class="col-md-4">
                 <div class="mb-3 mt-3">
-                    <div for="createProfile_country" class="form-label"><b>Country:</b>
-                        <span class="font-red fs12 mt3p float-end"><i>[Required Field]</i></span> 
-                    </div>
-                    <select class="form-select" id="createProfile_country" onchange="javascript:load_states_list()"></select>
-                </div>
-            </div><!--/.col-md-4 -->
-            <div class="col-md-4">
-                <div class="mb-3 mt-3">
-                    <div for="createProfile_state" class="form-label"><b>State:</b>
-                        <span class="font-red fs12 mt3p float-end"><i>[Required Field]</i></span> 
-                    </div>
-                    <input type="text" class="form-control" id="createProfile_state" placeholder="Enter your State">
-                </div>
-            </div><!--/.col-md-4 -->
-        </div><!--/.row -->
-        <div class="row">
-            <div class="col-md-4">
-                <div class="mb-3 mt-3">
-                    <div for="createProfile_state" class="form-label"><b>Email:</b>
+                    <div for="createProfile_email" class="form-label"><b>Email:</b>
                         <span class="font-red fs12 mt3p float-end"><i>[Required Field]</i></span> 
                     </div>
                     <input type="text" class="form-control" id="createProfile_email" placeholder="Enter your Email">
@@ -44,16 +26,36 @@
             </div><!--/.col-md-4 -->
             <div class="col-md-4">
                 <div class="mb-3 mt-3">
-				    <div for="register_mobile" class="form-label"><b>Mobile:</b> <span class="font-red fs12 mt3p float-end"><i>[Required Field]</i></span></div>
-				    <div class="input-group">
-					    <span class="input-group-text" id="createProfile_mobile_index"></span>
-					    <input type="tel" class="form-control" id="createProfile_mobile" 
-						    oninput="this.value = this.value.replace(/[^0-9]/g,'');" 
-						    placeholder="Enter your Mobile Number">
-				    </div>
-			    </div>
+                    <div for="createProfile_country" class="form-label"><b>Country:</b>
+                        <span class="font-red fs12 mt3p float-end"><i>[Required Field]</i></span> 
+                    </div>
+                    <select class="form-select" id="createProfile_country" onchange="javascript:load_states_list('createProfile')"></select>
+                </div>
             </div><!--/.col-md-4 -->
         </div><!--/.row -->
+        <div id="createProfile_states_module">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="mb-3 mt-3">
+                        <div for="createProfile_state" class="form-label"><b>State:</b>
+                            <span class="font-red fs12 mt3p float-end"><i>[Required Field]</i></span> 
+                        </div>
+                        <select class="form-select" id="createProfile_state"></select>
+                    </div>
+                </div><!--/.col-md-4 -->
+                <div class="col-md-4">
+                    <div class="mb-3 mt-3">
+                        <div for="register_mobile" class="form-label"><b>Mobile:</b> <span class="font-red fs12 mt3p float-end"><i>[Required Field]</i></span></div>
+                        <div class="input-group">
+                            <span class="input-group-text" id="createProfile_mobile_index"></span>
+                            <input type="tel" class="form-control" id="createProfile_mobile" 
+                                oninput="this.value = this.value.replace(/[^0-9]/g,'');" 
+                                placeholder="Enter your Mobile Number">
+                        </div>
+                    </div>
+                </div><!--/.col-md-4 -->
+            </div><!--/.row -->
+        </div>
     </div><!--/.card-body -->
 </div><!--/.card -->
 </div><!--/.col-md-12 -->
