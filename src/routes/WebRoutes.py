@@ -18,4 +18,5 @@ app.register_blueprint(commandListener_bp)
 app.register_blueprint(vf_bp)
 
 if __name__ == "__main__":
-    serve(app, host="0.0.0.0", port=5999)
+    app.run(host="0.0.0.0", port=5999, debug=True)   # <— built-in server
+    # serve(app, host="0.0.0.0", port=5999) # <- Production ready

@@ -32,19 +32,19 @@ function load_select_options(id, label, data){
 	document.getElementById(id).innerHTML = content;
 }
 
-function load_countries_list(id){
+function load_countries_list(prefix){
  api_executor('http://localhost/apis/get/countries/list',(data)=>{
-	load_select_options('register_countries', 'Select your Country', data);
+	load_select_options(prefix+'_country', 'Select your Country', data);
  });
 }
 
-function load_states_list(){
- const country = document.getElementById("register_countries").value;
+function load_states_list(prefix){
+ const country = document.getElementById(prefix+"_country").value;
  const status = (country.length>0)?'block':'none';
- document.getElementById("mod_register_states").style.display = status;
+ document.getElementById(prefix+"_states_module").style.display = status;
  api_executor('http://localhost/apis/get/'+country+'/states',(data)=>{
-	document.getElementById("register_mobile_index").innerHTML = data?.["tel_index"];
-	load_select_options('register_states', 'Select your State', data?.["states"]);
+	document.getElementById(prefix+"_mobile_index").innerHTML = data?.["tel_index"];
+	load_select_options(prefix+'_state', 'Select your State', data?.["states"]);
  });
 }
 
