@@ -9,12 +9,15 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script src="{{ url_for('static', filename='js/utils.js', _external=True) }}"></script>
+<script src="{{ url_for('static', filename='js/pages/auth-profile-create.js', _external=True) }}"></script>
 <style>
-#createProfile_states_module { display:none; }
+#createProfile_states_module, #createProfile_formDisplay_personalDetails, #createProfile_formDisplay_eduDetails, #createProfile_formDisplay_empDetails,
+#createProfile_formDisplay_visaDetails, #createProfile_formDisplay_techStackDetails { display:none; }
 </style>
 <script>
 $(document).ready(function(){
     load_countries_list('createProfile');
+    load_createProfile_leftMenu('createProfile_leftMenu', 'personal_details');
 });
 </script>
 </head>
@@ -24,53 +27,70 @@ $(document).ready(function(){
     <div class="container-fluid" style="padding-top:10px;padding-left:25px;padding-right:25px;">
         <div class="row mt-1">
             <div class="col-md-12"><h4>Create a Profile</h4><hr/></div>
-            <div style="color:#555;"><i>Thinking! <u>Create Profile Form</u> is bigger. Don't worry, you can fill few things and can be saved using 
-                <u>"Save Details Button"</u>. Once all the data is submitted, then you can use this Profile for Live Meetings.
+            <div style="color:#555;"><i>Thinking! <u>Create Profile Form</u> is bigger. Don't worry, you can fill few things 
+                and can be saved using <u>"Save Details Button"</u>. Once all the data is submitted, then you can 
+                use this Profile for Live Meetings.
             </i></div>
         </div>
-        {% include "components/profile/personal-details.html" %}
-        {% include "components/profile/edu-details.html" %}
-    
         <div class="row mt-3">
-            <div class="col-md-12">
-                <!-- -->
-                <div class="card">
-                    <div class="card-body">
-                        <h5>Employeer's Details</h5><hr/>
+            <div id="createProfile_leftMenu" class="col-md-2"></div>
+            <div class="col-md-10">
+                <div id="createProfile_formDisplay_personalDetails">
+                    {% include "components/profile/personal-details.html" %}
+                    <div class="float-end">
+                        <button type="button" class="btn btn-success mt-3 fs14 ms-2" 
+                            onClick="javascript:save_createProfile_personalDetails()"><b>Save</b></button>
+                        <button type="button" class="btn btn-success mt-3 fs14 ms-2" 
+                            onClick="javascript:next_createProfile_personalDetails()"><b>Next</b></button>
                     </div>
-                </div>
-                <!-- -->
-            </div>
-        </div><!--/.row -->
-        <div class="row mt-3">
-            <div class="col-md-12">
-                <!-- -->
-                <div class="card">
-                    <div class="card-body">
-                        <h5>Visa Details</h5><hr/>
+                    
+                </div><!--#createProfile_formDisplay_personalDetails -->
+                <div id="createProfile_formDisplay_eduDetails">
+                    {% include "components/profile/edu-details.html" %}
+                    <div class="float-end">
+                        <button type="button" class="btn btn-primary mt-3 fs14 ms-2" 
+                            onClick="javascript:previous_createProfile_eduDetails()"><b>Previous</b></button>
+                        <button type="button" class="btn btn-success mt-3 fs14 ms-2" 
+                            onClick="javascript:save_createProfile_eduDetails()"><b>Save</b></button>
+                        <button type="button" class="btn btn-success mt-3 fs14 ms-2" 
+                            onClick="javascript:next_createProfile_eduDetails()"><b>Next</b></button>
                     </div>
-                </div>
-                <!-- -->
-            </div>
-        </div><!--/.row -->
-        <div class="row mt-3">
-            <div class="col-md-12">
-                <!-- -->
-                <div class="card">
-                    <div class="card-body">
-                        <h5>Tech Stack Details</h5><hr/>
+                </div><!--#createProfile_formDisplay_eduDetails -->
+                <div id="createProfile_formDisplay_empDetails">
+                    {% include "components/profile/emp-details.html" %}
+                    <div class="float-end">
+                        <button type="button" class="btn btn-primary mt-3 fs14 ms-2" 
+                            onClick="javascript:previous_createProfile_empDetails()"><b>Previous</b></button>
+                        <button type="button" class="btn btn-success mt-3 fs14 ms-2" 
+                            onClick="javascript:save_createProfile_empDetails()"><b>Save</b></button>
+                        <button type="button" class="btn btn-success mt-3 fs14 ms-2" 
+                            onClick="javascript:next_createProfile_empDetails()"><b>Next</b></button>
                     </div>
-                </div>
-                <!-- -->
+                </div><!--#createProfile_formDisplay_empDetails -->
+                <div id="createProfile_formDisplay_visaDetails">
+                    {% include "components/profile/visa-details.html" %}
+                    <div class="float-end">
+                        <button type="button" class="btn btn-primary mt-3 fs14 ms-2" 
+                            onClick="javascript:previous_createProfile_visaDetails()"><b>Previous</b></button>
+                        <button type="button" class="btn btn-success mt-3 fs14 ms-2" 
+                            onClick="javascript:save_createProfile_visaDetails()"><b>Save</b></button>
+                        <button type="button" class="btn btn-success mt-3 fs14 ms-2" 
+                            onClick="javascript:next_createProfile_visaDetails()"><b>Next</b></button>
+                    </div>
+                </div><!--#createProfile_formDisplay_visaDetails -->
+                <div id="createProfile_formDisplay_techStackDetails">
+                    {% include "components/profile/techstack-details.html" %}
+                    <div class="float-end">
+                        <button type="button" class="btn btn-primary mt-3 fs14 ms-2" 
+                            onClick="javascript:previous_createProfile_techStackDetails()"><b>Previous</b></button>
+                        <button type="button" class="btn btn-success mt-3 fs14 ms-2" 
+                            onClick="javascript:save_createProfile_techStackDetails()"><b>Save</b></button>
+                        <button type="button" class="btn btn-success mt-3 fs14 ms-2" 
+                            onClick="javascript:publish_createProfile_techStackDetails()"><b>Publish</b></button>
+                    </div>
+                </div><!--#createProfile_formDisplay_techStackDetails -->
             </div>
-        </div><!--/.row -->
-        <div class="row mt-3">
-            <div class="col-md-12">
-                <button type="button" class="btn btn-primary fs14 float-end ms-2" onclick="javascript:createProfile()"><b>Create Profile</b></button>
-                <button type="button" class="btn btn-success fs14 float-end ms-2" onclick="javascript:saveProfile()"><b>Save Details</b></button>
-                <button type="button" class="btn btn-danger fs14 float-end ms-2" onclick="javascript:resetProfile()"><b>Reset</b></button>
-            </div><!--/.col-md-12 -->
-        </div><!--/.row -->
+        </div>
     </div>
 </body>
 </html>
