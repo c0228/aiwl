@@ -1,75 +1,75 @@
 <script>
-function loadUI_edu_courseName(){
+function loadUI_edu_courseName(index){
  let content='<div class="col-md-4">';
     content+='<!-- Degree & Major -->';
     content+='<div class="mb-3 mt-3">';
-    content+='<div for="edu_degree" class="form-label">';
+    content+='<div for="createProfile_eduDetails_courseName'+index+'" class="form-label">';
     content+='<b>Course:</b>';
     content+='<span class="font-red fs12 mt3p float-end"><i>[Required Field]</i></span>';
     content+='</div>';
-    content+='<input type="text" class="form-control" id="edu_degree" ';
+    content+='<input type="text" class="form-control" id="createProfile_eduDetails_courseName'+index+'" ';
     content+='placeholder="e.g. B.Tech in Computer Science & Engineering">';
     content+='</div>';
     content+='</div><!--/.col-md-4 -->';
  return content;
 }
-function loadUI_edu_schoolCollegeName(){
+function loadUI_edu_schoolCollegeName(index){
  let content='<div class="col-md-4">';
     content+='<!-- University / College Name -->';
     content+='<div class="mb-3 mt-3">';
-    content+='<div for="edu_university" class="form-label">';
+    content+='<div for="createProfile_eduDetails_collegeName'+index+'" class="form-label">';
     content+='<b>School / College Name:</b>';
     content+='<span class="font-red fs12 mt3p float-end"><i>[Required Field]</i></span>';
     content+='</div>';
-    content+='<input type="text" class="form-control" id="edu_university" ';
+    content+='<input type="text" class="form-control" id="createProfile_eduDetails_collegeName'+index+'" ';
     content+=' placeholder="e.g. Jawaharlal Nehru Technological University, Hyderabad">';
     content+='</div>';
     content+='</div><!--/.col-md-4 -->';
  return content;
 }
-function loadUI_edu_yearsOfPassing(){
+function loadUI_edu_yearsOfPassing(index){
  let content='<div class="col-md-4">';
     content+='<!-- Year of Passing -->';
     content+='<div class="mb-3 mt-3">';
-    content+='<div for="edu_year" class="form-label">';
+    content+='<div for="createProfile_eduDetails_yearOfPassing'+index+'" class="form-label">';
     content+='<b>Year of Passing:</b>';
     content+='<span class="font-red fs12 mt3p float-end"><i>[Required Field]</i></span>';
     content+='</div>';
     content+='<div class="row">';
     content+='<div class="col">';
-    content+='<input type="text" class="form-control" id="edu_year_from" placeholder="From (e.g. 2010)">';
+    content+='<input type="text" class="form-control" id="createProfile_eduDetails_yearOfPassing'+index+'_from" placeholder="From (e.g. 2010)">';
     content+='</div>';
     content+='<div class="col">';
-    content+='<input type="text" class="form-control" id="edu_year_to" placeholder="To (e.g. 2014)">';
+    content+='<input type="text" class="form-control" id="createProfile_eduDetails_yearOfPassing'+index+'_to" placeholder="To (e.g. 2014)">';
     content+='</div>';
     content+='</div>';
     content+='</div>';
     content+='</div><!--/.col-md-4 -->';
  return content;
 }
-function loadUI_percentageCGPA(){
+function loadUI_percentageCGPA(index){
  let content='<div class="col-md-4">';
     content+='<!-- Percentage / CGPA -->';
     content+='<div class="mb-3 mt-3">';
-    content+='<div for="edu_percentage" class="form-label">';
+    content+='<div for="createProfile_eduDetails_percentage'+index+'" class="form-label">';
     content+='<b>Percentage / CGPA:</b>';
     content+='<span class="font-gray fs12 mt3p float-end"><i>[Optional]</i></span>';
     content+='</div>';
-    content+='<input type="text" class="form-control" id="edu_percentage" ';
+    content+='<input type="text" class="form-control" id="createProfile_eduDetails_percentage'+index+'" ';
     content+='placeholder="e.g. 8.1/10 or 78%">';
     content+='</div>';
     content+='</div><!--/.col-md-4 -->';
  return content;
 }
-function loadUI_edu_relevantAchievement() {
+function loadUI_edu_relevantAchievement(index) {
  let content='<div class="col-md-8">';
     content+='<!-- Relevant Achievements -->';
     content+='<div class="mb-3 mt-3">';
-    content+='<div for="edu_achievements" class="form-label">';
+    content+='<div for="createProfile_eduDetails_achievements'+index+'" class="form-label">';
     content+='<b>Relevant Achievements:</b>';
     content+='<span class="font-gray fs12 mt3p float-end"><i>[Optional]</i></span>';
     content+='</div>';
-    content+='<textarea class="form-control" id="edu_achievements" rows="4" ';
+    content+='<textarea class="form-control" id="createProfile_eduDetails_achievements'+index+'" rows="4" ';
     content+='placeholder="e.g. Top 5% of class, Gold Medalist"></textarea>';
     content+='</div>';
     content+='</div><!--/.col-md-4 -->';
@@ -92,13 +92,13 @@ function loadUI_new_educationQualification(id) {
     content+='</div><!--/.col-md-12 -->';
     content+='</div><!--/.row -->';
     content+='<div class="row">';
-    content+=loadUI_edu_courseName();
-    content+=loadUI_edu_schoolCollegeName();
-    content+=loadUI_edu_yearsOfPassing();
+    content+=loadUI_edu_courseName(ACADEMIC_RECORD_INDEX);
+    content+=loadUI_edu_schoolCollegeName(ACADEMIC_RECORD_INDEX);
+    content+=loadUI_edu_yearsOfPassing(ACADEMIC_RECORD_INDEX);
     content+='</div><!--/.row -->';
     content+='<div class="row">';
-    content+=loadUI_percentageCGPA();
-    content+=loadUI_edu_relevantAchievement();
+    content+=loadUI_percentageCGPA(ACADEMIC_RECORD_INDEX);
+    content+=loadUI_edu_relevantAchievement(ACADEMIC_RECORD_INDEX);
     content+='</div><!--/.row -->';
     content+='</div>';
     content+='</div>';
