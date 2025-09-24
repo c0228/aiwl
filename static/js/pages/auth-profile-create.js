@@ -55,7 +55,7 @@ function load_createProfile_leftMenu(id, activeId) {
  document.getElementById(menuView).style.display='block';
 }
 function save_createProfile_personalDetails(){
-
+ document.getElementById("createProfile_formNextBtn_personalDetails").style.display='inline-block';
 }
 function next_createProfile_personalDetails(){
  sel_createProfile_leftMenu('edu_qualifications');
@@ -64,9 +64,10 @@ function next_createProfile_personalDetails(){
 /* ------ EDUCATIONAL QUALIFICATIONS ::: START ----------------------------------- */
 function previous_createProfile_eduDetails(){
  sel_createProfile_leftMenu('personal_details');
+ document.getElementById("createProfile_formNextBtn_personalDetails").style.display='none';
 }
 function save_createProfile_eduDetails(){
- 
+ document.getElementById("createProfile_formNextBtn_eduDetails").style.display='inline-block';
 }
 function next_createProfile_eduDetails(){
  sel_createProfile_leftMenu('emp_details');
@@ -75,9 +76,10 @@ function next_createProfile_eduDetails(){
 /* ------ EMPLOYEE'S DETAILS ::: START ----------------------------------- */
 function previous_createProfile_empDetails(){
  sel_createProfile_leftMenu('edu_qualifications');
+ document.getElementById("createProfile_formNextBtn_eduDetails").style.display='none';
 }
 function save_createProfile_empDetails(){
-
+ document.getElementById("createProfile_formNextBtn_empDetails").style.display='inline-block';
 }
 function next_createProfile_empDetails(){
  sel_createProfile_leftMenu('visa_details');
@@ -86,9 +88,10 @@ function next_createProfile_empDetails(){
 /* ------ VISA DETAILS ::: START ----------------------------------- */
 function previous_createProfile_visaDetails(){
  sel_createProfile_leftMenu('emp_details');
+ document.getElementById("createProfile_formNextBtn_empDetails").style.display='none';
 }
 function save_createProfile_visaDetails(){
-
+ document.getElementById("createProfile_formNextBtn_visaDetails").style.display='inline-block';
 }
 function next_createProfile_visaDetails(){
  sel_createProfile_leftMenu('tech_stack_details');
@@ -97,9 +100,11 @@ function next_createProfile_visaDetails(){
 /* ------ TECH STACK DETAILS ::: START ----------------------------------- */
 function previous_createProfile_techStackDetails(){
  sel_createProfile_leftMenu('visa_details');
+ document.getElementById("createProfile_formNextBtn_visaDetails").style.display='none';
+ document.getElementById("createProfile_formNextBtn_techStackDetails").style.display='none';
 }
 function save_createProfile_techStackDetails(){
-
+ document.getElementById("createProfile_formNextBtn_techStackDetails").style.display='inline-block';
 }
 function publish_createProfile_techStackDetails(){
  
