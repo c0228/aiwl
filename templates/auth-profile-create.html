@@ -11,7 +11,7 @@
 <script src="{{ url_for('static', filename='js/utils.js', _external=True) }}"></script>
 <script src="{{ url_for('static', filename='js/pages/auth-profile-create.js', _external=True) }}"></script>
 <style>
-#createProfile_states_module,
+#createProfile_personalDetails_states_module,
 #createProfile_formDisplay_personalDetails, #createProfile_formDisplay_eduDetails, #createProfile_formDisplay_empDetails,
 #createProfile_formDisplay_visaDetails, #createProfile_formDisplay_techStackDetails, 
 #createProfile_formNextBtn_personalDetails, #createProfile_formNextBtn_eduDetails, #createProfile_formNextBtn_empDetails,
@@ -19,7 +19,7 @@
 </style>
 <script>
 $(document).ready(function(){
-    load_countries_list('createProfile');
+    load_countries_list('createProfile_personalDetails');
     load_createProfile_leftMenu('createProfile_leftMenu', 'personal_details');
 });
 </script>

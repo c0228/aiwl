@@ -9,46 +9,46 @@
                 <div id="createProfiles_form_alert" class="mb-3 mt-3"></div>
                 
                 <div class="mb-3 mt-3">
-                    <div for="createProfiles_name" class="form-label"><b>Name:</b>
+                    <div for="createProfiles_personalDetails_name" class="form-label"><b>Name:</b>
                         <span class="font-red fs12 mt3p float-end"><i>[Required Field]</i></span> 
                     </div>
-                    <input type="text" class="form-control" id="createProfile_name" placeholder="Enter your Name">
+                    <input type="text" class="form-control" id="createProfile_personalDetails_name" placeholder="Enter your Name">
                 </div>
                 <!-- -->
             </div><!--/.col-md-4 -->
             <div class="col-md-4">
                 <div class="mb-3 mt-3">
-                    <div for="createProfile_email" class="form-label"><b>Email:</b>
+                    <div for="createProfile_personalDetails_email" class="form-label"><b>Email:</b>
                         <span class="font-red fs12 mt3p float-end"><i>[Required Field]</i></span> 
                     </div>
-                    <input type="text" class="form-control" id="createProfile_email" placeholder="Enter your Email">
+                    <input type="text" class="form-control" id="createProfile_personalDetails_email" placeholder="Enter your Email">
                 </div>
             </div><!--/.col-md-4 -->
             <div class="col-md-4">
                 <div class="mb-3 mt-3">
-                    <div for="createProfile_country" class="form-label"><b>Country:</b>
+                    <div for="createProfile_personalDetails_country" class="form-label"><b>Country:</b>
                         <span class="font-red fs12 mt3p float-end"><i>[Required Field]</i></span> 
                     </div>
-                    <select class="form-select" id="createProfile_country" onchange="javascript:load_states_list('createProfile')"></select>
+                    <select class="form-select" id="createProfile_personalDetails_country" onchange="javascript:load_states_list('createProfile_personalDetails')"></select>
                 </div>
             </div><!--/.col-md-4 -->
         </div><!--/.row -->
-        <div id="createProfile_states_module">
+        <div id="createProfile_personalDetails_states_module">
             <div class="row">
                 <div class="col-md-4">
                     <div class="mb-3 mt-3">
-                        <div for="createProfile_state" class="form-label"><b>State:</b>
+                        <div for="createProfile_personalDetails_state" class="form-label"><b>State:</b>
                             <span class="font-red fs12 mt3p float-end"><i>[Required Field]</i></span> 
                         </div>
-                        <select class="form-select" id="createProfile_state"></select>
+                        <select class="form-select" id="createProfile_personalDetails_state"></select>
                     </div>
                 </div><!--/.col-md-4 -->
                 <div class="col-md-4">
                     <div class="mb-3 mt-3">
-                        <div for="register_mobile" class="form-label"><b>Mobile:</b> <span class="font-red fs12 mt3p float-end"><i>[Required Field]</i></span></div>
+                        <div for="createProfile_personalDetails_mobile" class="form-label"><b>Mobile:</b> <span class="font-red fs12 mt3p float-end"><i>[Required Field]</i></span></div>
                         <div class="input-group">
-                            <span class="input-group-text" id="createProfile_mobile_index"></span>
-                            <input type="tel" class="form-control" id="createProfile_mobile" 
+                            <span class="input-group-text" id="createProfile_personalDetails_mobile_index"></span>
+                            <input type="tel" class="form-control" id="createProfile_personalDetails_mobile" 
                                 oninput="this.value = this.value.replace(/[^0-9]/g,'');" 
                                 placeholder="Enter your Mobile Number">
                         </div>
