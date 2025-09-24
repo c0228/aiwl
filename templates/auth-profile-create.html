@@ -11,7 +11,8 @@
 <script src="{{ url_for('static', filename='js/utils.js', _external=True) }}"></script>
 <script src="{{ url_for('static', filename='js/pages/auth-profile-create.js', _external=True) }}"></script>
 <style>
-#createProfile_states_module, #createProfile_formDisplay_personalDetails, #createProfile_formDisplay_eduDetails, #createProfile_formDisplay_empDetails,
+#createProfile_states_module,
+#createProfile_formDisplay_personalDetails, #createProfile_formDisplay_eduDetails, #createProfile_formDisplay_empDetails,
 #createProfile_formDisplay_visaDetails, #createProfile_formDisplay_techStackDetails { display:none; }
 </style>
 <script>
@@ -37,56 +38,84 @@ $(document).ready(function(){
             <div class="col-md-10">
                 <div id="createProfile_formDisplay_personalDetails">
                     {% include "components/profile/personal-details.html" %}
-                    <div class="float-end">
-                        <button type="button" class="btn btn-success mt-3 fs14 ms-2" 
-                            onClick="javascript:save_createProfile_personalDetails()"><b>Save</b></button>
-                        <button type="button" class="btn btn-success mt-3 fs14 ms-2" 
-                            onClick="javascript:next_createProfile_personalDetails()"><b>Next</b></button>
+                    <div class="float-end mb-5">
+                        <button type="button" class="btn btn-primary mt-3 fs14 ms-2" 
+                            onClick="javascript:save_createProfile_personalDetails()">
+                            <i class="fa fa-floppy-o mx-1" aria-hidden="true"></i> <b>Save</b>
+                        </button>
+                        <button type="button" class="btn btn-outline-primary mt-3 fs14 ms-2" 
+                            onClick="javascript:next_createProfile_personalDetails()">
+                            <b>Next</b> <i class="fa fa-arrow-right mx-1" aria-hidden="true"></i>
+                        </button>
                     </div>
                     
                 </div><!--#createProfile_formDisplay_personalDetails -->
                 <div id="createProfile_formDisplay_eduDetails">
                     {% include "components/profile/edu-details.html" %}
-                    <div class="float-end">
+                    <div class="float-end mb-5">
+                        <button type="button" class="btn btn-outline-primary mt-3 fs14 ms-2" 
+                            onClick="javascript:previous_createProfile_eduDetails()">
+                            <i class="fa fa-arrow-left mx-1" aria-hidden="true"></i> <b>Previous</b>
+                        </button>
                         <button type="button" class="btn btn-primary mt-3 fs14 ms-2" 
-                            onClick="javascript:previous_createProfile_eduDetails()"><b>Previous</b></button>
-                        <button type="button" class="btn btn-success mt-3 fs14 ms-2" 
-                            onClick="javascript:save_createProfile_eduDetails()"><b>Save</b></button>
-                        <button type="button" class="btn btn-success mt-3 fs14 ms-2" 
-                            onClick="javascript:next_createProfile_eduDetails()"><b>Next</b></button>
+                            onClick="javascript:save_createProfile_eduDetails()">
+                            <i class="fa fa-floppy-o mx-1" aria-hidden="true"></i> <b>Save</b>
+                        </button>
+                        <button type="button" class="btn btn-outline-primary mt-3 fs14 ms-2" 
+                            onClick="javascript:next_createProfile_eduDetails()">
+                            <b>Next</b> <i class="fa fa-arrow-right mx-1" aria-hidden="true"></i>
+                        </button>
                     </div>
                 </div><!--#createProfile_formDisplay_eduDetails -->
                 <div id="createProfile_formDisplay_empDetails">
                     {% include "components/profile/emp-details.html" %}
-                    <div class="float-end">
+                    <div class="float-end mb-5">
+                        <button type="button" class="btn btn-outline-primary mt-3 fs14 ms-2" 
+                            onClick="javascript:previous_createProfile_empDetails()">
+                            <i class="fa fa-arrow-left" aria-hidden="true"></i> <b>Previous</b>
+                        </button>
                         <button type="button" class="btn btn-primary mt-3 fs14 ms-2" 
-                            onClick="javascript:previous_createProfile_empDetails()"><b>Previous</b></button>
-                        <button type="button" class="btn btn-success mt-3 fs14 ms-2" 
-                            onClick="javascript:save_createProfile_empDetails()"><b>Save</b></button>
-                        <button type="button" class="btn btn-success mt-3 fs14 ms-2" 
-                            onClick="javascript:next_createProfile_empDetails()"><b>Next</b></button>
+                            onClick="javascript:save_createProfile_empDetails()">
+                            <i class="fa fa-floppy-o mx-1" aria-hidden="true"></i> <b>Save</b>
+                        </button>
+                        <button type="button" class="btn btn-outline-primary mt-3 fs14 ms-2" 
+                            onClick="javascript:next_createProfile_empDetails()">
+                            <b>Next</b> <i class="fa fa-arrow-right mx-1" aria-hidden="true"></i>
+                        </button>
                     </div>
                 </div><!--#createProfile_formDisplay_empDetails -->
                 <div id="createProfile_formDisplay_visaDetails">
                     {% include "components/profile/visa-details.html" %}
-                    <div class="float-end">
+                    <div class="float-end mb-5">
+                        <button type="button" class="btn btn-outline-primary mt-3 fs14 ms-2" 
+                            onClick="javascript:previous_createProfile_visaDetails()">
+                            <i class="fa fa-arrow-left" aria-hidden="true"></i> <b>Previous</b>
+                        </button>
                         <button type="button" class="btn btn-primary mt-3 fs14 ms-2" 
-                            onClick="javascript:previous_createProfile_visaDetails()"><b>Previous</b></button>
-                        <button type="button" class="btn btn-success mt-3 fs14 ms-2" 
-                            onClick="javascript:save_createProfile_visaDetails()"><b>Save</b></button>
-                        <button type="button" class="btn btn-success mt-3 fs14 ms-2" 
-                            onClick="javascript:next_createProfile_visaDetails()"><b>Next</b></button>
+                            onClick="javascript:save_createProfile_visaDetails()">
+                            <i class="fa fa-floppy-o mx-1" aria-hidden="true"></i> <b>Save</b>
+                        </button>
+                        <button type="button" class="btn btn-outline-primary mt-3 fs14 ms-2" 
+                            onClick="javascript:next_createProfile_visaDetails()">
+                            <b>Next</b> <i class="fa fa-arrow-right mx-1" aria-hidden="true"></i>
+                        </button>
                     </div>
                 </div><!--#createProfile_formDisplay_visaDetails -->
                 <div id="createProfile_formDisplay_techStackDetails">
                     {% include "components/profile/techstack-details.html" %}
-                    <div class="float-end">
+                    <div class="float-end mb-5">
+                        <button type="button" class="btn btn-outline-primary mt-3 fs14 ms-2" 
+                            onClick="javascript:previous_createProfile_techStackDetails()">
+                            <i class="fa fa-arrow-left" aria-hidden="true"></i> <b>Previous</b>
+                        </button>
                         <button type="button" class="btn btn-primary mt-3 fs14 ms-2" 
-                            onClick="javascript:previous_createProfile_techStackDetails()"><b>Previous</b></button>
-                        <button type="button" class="btn btn-success mt-3 fs14 ms-2" 
-                            onClick="javascript:save_createProfile_techStackDetails()"><b>Save</b></button>
-                        <button type="button" class="btn btn-success mt-3 fs14 ms-2" 
-                            onClick="javascript:publish_createProfile_techStackDetails()"><b>Publish</b></button>
+                            onClick="javascript:save_createProfile_techStackDetails()">
+                            <i class="fa fa-floppy-o mx-1" aria-hidden="true"></i> <b>Save</b>
+                        </button>
+                        <button type="button" class="btn btn-outline-primary mt-3 fs14 ms-2" 
+                            onClick="javascript:publish_createProfile_techStackDetails()">
+                            <i class="fa fa-cloud-upload mx-1" aria-hidden="true"></i> <b>Publish</b>
+                        </button>
                     </div>
                 </div><!--#createProfile_formDisplay_techStackDetails -->
             </div>
