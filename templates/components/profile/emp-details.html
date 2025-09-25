@@ -1,3 +1,207 @@
+<script>
+function loadUI_emp_companyName(index){
+ let content='<div class="col-md-6">';
+    content+='<!-- -->';
+    content+='<div id="createProfiles_form_alert" class="mb-3"></div>';
+    content+='<div class="mb-3">';
+    content+='<div for="createProfile_empDetails_companyName'+index+'" class="form-label"><b>Company Name:</b>';
+    content+='<span class="font-red fs12 mt3p float-end"><i>[Required Field]</i></span>';
+    content+='</div>';
+    content+='<input type="text" class="form-control" id="createProfile_empDetails_companyName'+index+'" ';
+    content+='placeholder="Enter Company Name">';
+    content+='</div>';
+    content+='<!-- -->';
+    content+='</div><!--/.col-md-6 -->';
+ return content;
+}
+function loadUI_emp_location(index){
+ let content='<div class="col-md-3">';
+    content+='<!-- -->';
+    content+='<div class="mb-3">';
+    content+='<div for="createProfile_empDetails_location'+index+'" class="form-label"><b>Location:</b>';
+    content+='<span class="font-red fs12 mt3p float-end"><i>[Required Field]</i></span>';
+    content+='</div>';
+    content+='<input type="text" class="form-control" id="createProfile_empDetails_location'+index+'" ';
+    content+='placeholder="Enter Location">';
+    content+='</div>';
+    content+='<!-- -->';
+    content+='</div><!--/.col-md-3 -->';
+ return content;
+}
+function loadUI_emp_country(index){
+ let content='<div class="col-md-3">';
+    content+='<!-- -->';
+    content+='<div class="mb-3">';
+    content+='<div for="createProfile_empDetails_country'+index+'" class="form-label"><b>Country:</b>';
+    content+='<span class="font-red fs12 mt3p float-end"><i>[Required Field]</i></span>';
+    content+='</div>';
+    content+='<input type="text" class="form-control" id="createProfile_empDetails_country'+index+'" ';
+    content+='placeholder="Enter Country">';
+    content+='</div>';
+    content+='<!-- -->';
+    content+='</div><!--/.col-md-3 -->';
+ return content;
+}
+function loadUI_emp_jobTitle(index){
+ let content='<div class="col-md-6">';
+    content+='<!-- -->';
+    content+='<div id="createProfiles_form_alert" class="mb-3 mt-3"></div>';
+    content+='<div class="mb-3 mt-3">';
+    content+='<div for="createProfile_empDetails_jobTitleRole'+index+'" class="form-label"><b>Job Title / Role:</b>';
+    content+='<span class="font-red fs12 mt3p float-end"><i>[Required Field]</i></span>';
+    content+='</div>';
+    content+='<input type="text" class="form-control" id="createProfile_empDetails_jobTitleRole'+index+'" ';
+    content+='placeholder="Enter Job Title / Role">';
+    content+='</div>';
+    content+='<!-- -->';
+    content+='</div><!--/.col-md-6 -->';
+ return content;
+}
+function loadUI_emp_from(index){
+ let content='<div class="col-md-3">';
+    content+='<!-- -->';
+    content+='<div class="mb-3 mt-3">';
+    content+='<div for="createProfile_empDetails_from'+index+'" class="form-label"><b>From:</b>';
+    content+='<span class="font-red fs12 mt3p float-end"><i>[Required Field]</i></span>';
+    content+='</div>';
+    content+='<input type="date" class="form-control" id="createProfile_empDetails_from'+index+'" placeholder="Enter From">';
+    content+='</div>';
+    content+='<!-- -->';
+    content+='</div><!--/.col-md-3 -->';
+ return content;
+}
+function loadUI_emp_to(index){
+  let content='<div class="col-md-3">';
+    content+='<!-- -->';
+    content+='<div class="mb-3 mt-3">';
+    content+='<div for="createProfile_empDetails_to'+index+'" class="form-label"><b>To:</b>';
+    content+='<span class="font-red fs12 mt3p float-end"><i>[Required Field]</i></span>';
+    content+='</div>';
+    content+='<input type="date" class="form-control" id="createProfile_empDetails_to'+index+'" placeholder="Enter To">';
+    content+='</div>';
+    content+='<!-- -->';
+    content+='</div><!--/.col-md-3 -->';
+ return content;
+}
+function loadUI_emp_currentWorking(index){
+ let content='<div class="col-md-3">';
+    content+='<!-- -->';
+    content+='<div class="mb-3 mt-3">';
+    content+='<div class="form-check">';
+    content+='<input class="form-check-input" type="checkbox" id="createProfile_empDetails_currentWorking'+index+'" ';
+    content+='style="width:25px;height:25px;cursor:pointer;">';
+    content+='<label class="form-check-label" for="createProfile_empDetails_currentWorking'+index+'" ';
+    content+='style="padding-top:5px;padding-left:5px;">Currently Working</label>';
+    content+='</div>';
+    content+='</div>';
+    content+='<!--/.col-md-3 -->';
+    content+='</div>';
+ return content;
+}
+function loadUI_emp_responsibilities(index){
+ let content='<div class="col-md-12">';
+    content+='<!-- -->';
+    content+='<div class="mb-3 mt-3">';
+    content+='<label for="createProfile_empDetails_responsibilities'+index+'" class="form-label"><b>Key Responsibilities</b></label>';
+    content+='<textarea class="form-control" id="createProfile_empDetails_responsibilities'+index+'" rows="4" ';
+    content+='placeholder="List major tasks and responsibilities"></textarea>';
+    content+='</div>';
+    content+='<!-- -->';
+    content+='</div><!--/.col-md-12 -->';
+ return content;
+}
+function loadUI_emp_achievements(index){
+ let content='<div class="col-md-12">';
+    content+='<!-- -->';
+    content+='<div class="mb-3 mt-3">';
+    content+='<label for="createProfile_empDetails_achievements'+index+'" class="form-label"><b>Key Achievements</b></label>';
+    content+='<textarea class="form-control" id="createProfile_empDetails_achievements'+index+'" rows="4" ';
+    content+='placeholder="e.g. Improved API response time by 40%"></textarea>';
+    content+='</div>';
+    content+='<!-- -->';
+    content+='</div><!--/.col-md-12 -->';
+ return content;
+}
+function load_emp_techStack(index){
+ let content='<div class="col-md-12">';
+    content+='<!-- -->';
+    content+='<div class="mb-3 mt-3">';
+    content+='<label for="createProfile_empDetails_techStack'+index+'" class="form-label"><b>Tech Stack / Tools</b></label>';
+    content+='<textarea type="text" class="form-control" id="createProfile_empDetails_techStack'+index+'" rows="4" ';
+    content+='placeholder="e.g. React, Node.js, AWS, Docker"></textarea>';
+    content+='</div>';
+    content+='<!-- -->';
+    content+='</div><!--/.col-md-12 -->';
+ return content;
+}
+let EMPLOYER_RECORD_INDEX = 1;
+function loadUI_new_employerDetails(id){
+ let content='<div class="mt-3" style="border:2px dashed #ccc;padding:15px;">';
+    content+='<div class="row">';
+    content+='<div class="col-md-12">';
+    content+='<h5>EMPLOYER RECORD #'+EMPLOYER_RECORD_INDEX;
+    if(EMPLOYER_RECORD_INDEX>1){
+    content+='<span class="float-end curpoint">';
+    content+='<i class="fa fa-minus-circle" aria-hidden="true"></i>';
+    content+='</span>';
+    }
+    content+='</h5><hr/>';
+    content+='</div>';
+    content+='</div>';
+    content+='<div class="row">';
+    content+=loadUI_emp_companyName(EMPLOYER_RECORD_INDEX);
+    content+=loadUI_emp_location(EMPLOYER_RECORD_INDEX);
+    content+=loadUI_emp_country(EMPLOYER_RECORD_INDEX);
+    content+='</div><!--/.row -->';
+    content+='<div class="row">';
+    content+=loadUI_emp_jobTitle(EMPLOYER_RECORD_INDEX);
+    content+=loadUI_emp_from(EMPLOYER_RECORD_INDEX);
+    content+=loadUI_emp_to(EMPLOYER_RECORD_INDEX);
+    content+='</div><!--/.row -->';
+    content+='<div class="row">';
+    content+=loadUI_emp_currentWorking(EMPLOYER_RECORD_INDEX);
+    content+='</div><!--/.row -->';
+    content+='<div class="row">';
+    content+=loadUI_emp_responsibilities(EMPLOYER_RECORD_INDEX);
+    content+='</div><!--/.row -->';
+    content+='<div class="row">';
+    content+=loadUI_emp_achievements(EMPLOYER_RECORD_INDEX);
+    content+='</div><!--/.row -->';
+    content+='<div class="row">';
+    content+=load_emp_techStack(EMPLOYER_RECORD_INDEX);
+    content+='</div><!--/.row -->';
+    content+='</div>';
+ document.getElementById(id).innerHTML = content;
+ const newRecord = document.createElement('div');
+    newRecord.id = 'employers-record-' + (EMPLOYER_RECORD_INDEX+1);
+ const container = document.getElementById('employers-records');
+    container.appendChild(newRecord);    
+}
+function form_addNew_employerDetails(){
+ EMPLOYER_RECORD_INDEX++;
+ loadUI_new_employerDetails('employers-record-'+EMPLOYER_RECORD_INDEX);
+}
+function form_confirmDelete_employerDetails(index){
+ const modalId = 'createProfile-display-modal';
+ const heading = 'Delete Notification';
+ let body='<div align="center" >';
+    body+='<div><b>Are you sure to delete this EMPLOYER\'s RECORD #'+index+'?</b></div>';
+    body+='<div class="mt-2 btn-group btn-group-sm">';
+    body+='<button type="button" class="btn btn-success" ';
+    body+='onclick="javascript:form_remove_employerDetails('+index+');">Yes</button>';
+    body+='<button type="button" class="btn btn-danger">No</button>';
+    body+='</div>';
+ load_modal(modalId, heading, body);
+ open_modal(modalId);
+}
+function form_remove_employerDetails(index){
+  console.log('employers-record-'+index);
+  document.getElementById('employers-record-'+index).innerHTML = '';
+}
+$(document).ready(function(){
+ loadUI_new_employerDetails('employers-record-1');
+});
+</script>
 <div class="row">
 <div class="col-md-12">
 <div class="card">
@@ -6,142 +210,16 @@
 
         <div class="row">
                     <div class="col-md-12">
-                        <button type="button" class="btn btn-primary fs14 float-end ms-2"><b>
+                        <button type="button" class="btn btn-primary fs14 float-end ms-2" onclick="javascript:form_addNew_employerDetails();"><b>
                                 <i class="fa fa-plus-circle" aria-hidden="true"></i> Add Employer's Details</b></button>
                     </div><!--/.col-md-12 -->
         </div><!--/.row -->
 
-        <div class="mt-3" style="border:2px dashed #ccc;padding:15px;">
-        <div class="row">
-            <div class="col-md-12">
-                <h5>EMPLOYER RECORD #1
-                    <span class="float-end curpoint">
-                        <i class="fa fa-minus-circle" aria-hidden="true"></i>
-                    </span>
-                </h5><hr/>
-            </div>
+        <div id="employers-records">
+            <div id="employers-record-1"></div>
         </div>
+
         
-        <div class="row">
-            <div class="col-md-6">
-                <!-- -->
-                <div id="createProfiles_form_alert" class="mb-3"></div> 
-                <div class="mb-3">
-                    <div for="createProfile_empDetails_companyName" class="form-label"><b>Company Name:</b>
-                        <span class="font-red fs12 mt3p float-end"><i>[Required Field]</i></span> 
-                    </div>
-                    <input type="text" class="form-control" id="createProfile_empDetails_companyName" placeholder="Enter Company Name">
-                </div>
-                <!-- -->
-            </div><!--/.col-md-6 -->
-            <div class="col-md-3">
-                <!-- -->
-                <div class="mb-3">
-                    <div for="createProfile_empDetails_location" class="form-label"><b>Location:</b>
-                        <span class="font-red fs12 mt3p float-end"><i>[Required Field]</i></span> 
-                    </div>
-                    <input type="text" class="form-control" id="createProfile_empDetails_location" placeholder="Enter Location">
-                </div>
-                <!-- -->
-            </div><!--/.col-md-3 -->
-            <div class="col-md-3">
-                <!-- -->
-                <div class="mb-3">
-                    <div for="createProfile_empDetails_country" class="form-label"><b>Country:</b>
-                        <span class="font-red fs12 mt3p float-end"><i>[Required Field]</i></span> 
-                    </div>
-                    <input type="text" class="form-control" id="createProfile_empDetails_country" placeholder="Enter Country">
-                </div>
-                <!-- -->
-            </div><!--/.col-md-3 -->
-        </div><!--/.row -->
-
-        <div class="row">
-            <div class="col-md-6">
-                <!-- -->
-                <div id="createProfiles_form_alert" class="mb-3 mt-3"></div> 
-                <div class="mb-3 mt-3">
-                    <div for="createProfile_empDetails_jobTitleRole" class="form-label"><b>Job Title / Role:</b>
-                        <span class="font-red fs12 mt3p float-end"><i>[Required Field]</i></span> 
-                    </div>
-                    <input type="text" class="form-control" id="createProfile_empDetails_jobTitleRole" placeholder="Enter Job Title / Role">
-                </div>
-                <!-- -->
-            </div><!--/.col-md-6 -->
-            <div class="col-md-3">
-                <!-- -->
-                <div class="mb-3 mt-3">
-                    <div for="createProfile_empDetails_from" class="form-label"><b>From:</b>
-                        <span class="font-red fs12 mt3p float-end"><i>[Required Field]</i></span> 
-                    </div>
-                    <input type="date" class="form-control" id="createProfile_empDetails_from" placeholder="Enter From">
-                </div>
-                <!-- -->
-            </div><!--/.col-md-3 -->
-            <div class="col-md-3">
-                <!-- -->
-                <div class="mb-3 mt-3">
-                    <div for="createProfile_empDetails_to" class="form-label"><b>To:</b>
-                        <span class="font-red fs12 mt3p float-end"><i>[Required Field]</i></span> 
-                    </div>
-                    <input type="date" class="form-control" id="createProfile_empDetails_to" placeholder="Enter To">
-                </div>
-                <!-- -->
-            </div><!--/.col-md-3 -->
-        </div><!--/.row -->
-
-        <div class="row">
-            <div class="col-md-3">
-                <!-- -->
-                <div class="mb-3 mt-3">
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="createProfile_empDetails_currentWorking" 
-                            style="width:25px;height:25px;cursor:pointer;">
-                        <label class="form-check-label" for="createProfile_empDetails_currentWorking" 
-                            style="padding-top:5px;padding-left:5px;">Currently Working</label>
-                    </div>
-                </div>
-                <!-- -->
-            </div>
-        </div><!--/.row -->
-
-        <div class="row">
-            <div class="col-md-12">
-                <!-- -->
-                <div class="mb-3 mt-3">
-                    <label for="createProfile_empDetails_responsibilities" class="form-label"><b>Key Responsibilities</b></label>
-                    <textarea class="form-control" id="createProfile_empDetails_responsibilities" rows="4"
-                        placeholder="List major tasks and responsibilities"></textarea>
-                </div>
-                <!-- -->
-            </div><!--/.col-md-3 -->
-        </div><!--/.row -->
-
-        <div class="row">
-            <div class="col-md-12">
-                <!-- -->
-                <div class="mb-3 mt-3">
-                    <label for="createProfile_empDetails_achievements" class="form-label"><b>Key Achievements</b></label>
-                    <textarea class="form-control" id="createProfile_empDetails_achievements" rows="4"
-                        placeholder="e.g. Improved API response time by 40%"></textarea>
-                </div>
-                <!-- -->
-            </div><!--/.col-md-3 -->
-        </div><!--/.row -->
-
-        <div class="row">
-            <div class="col-md-12">
-                <!-- -->
-                <div class="mb-3 mt-3">
-                    <label for="createProfile_empDetails_tech" class="form-label"><b>Tech Stack / Tools</b></label>
-                    <textarea type="text" class="form-control" id="createProfile_empDetails_tech" rows="4"
-                        placeholder="e.g. React, Node.js, AWS, Docker"></textarea>
-                </div>
-                <!-- -->
-            </div><!--/.col-md-3 -->
-        </div><!--/.row -->
-
-        </div>
     </div><!--/.card-body-->
 </div><!--/.card -->
 </div><!--/.col-md-12-->
