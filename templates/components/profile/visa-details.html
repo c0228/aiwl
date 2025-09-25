@@ -1,8 +1,99 @@
+<style>
+#createProfiles_visaWorkAuth_visaType_module { display:none; }
+</style>
 <div class="row">
 <div class="col-md-12">
 <div class="card">
     <div class="card-body app-details-form">
-        <div><h5>Visa Details</h5><hr/></div>
+        <div><h5>Visa / Work Authorization Details</h5><hr/></div>
+
+        <div class="row">
+            <div class="col-md-4">
+            <!-- -->
+                <div class="mb-3 mt-3">
+                    <div for="createProfiles_visaWorkAuth_country" class="form-label"><b>Country of Study / Work:</b>
+                            <span class="font-red fs12 mt3p float-end"><i>[Required Field]</i></span> 
+                    </div>
+                    <select class="form-select" id="createProfiles_visaWorkAuth_country" 
+                        onchange="javascript:load_visaType_list('createProfiles_visaWorkAuth');"></select>
+                </div>
+            <!-- -->
+            </div><!--/.col-md-4 -->
+        </div><!--/.row -->
+        <div id="createProfiles_visaWorkAuth_visaType_module">
+        <div class="row">
+            <div class="col-md-4">
+            <!-- -->
+                <div class="mb-3 mt-3">
+                    <div for="createProfiles_visaWorkAuth_visaType" class="form-label"><b>Current Visa Type:</b>
+                            <span class="font-red fs12 mt3p float-end"><i>[Required Field]</i></span> 
+                    </div>
+                    <select class="form-select" id="createProfiles_visaWorkAuth_visaType"></select>
+                </div>
+            <!-- -->
+            </div><!--/.col-md-4 -->
+            <div class="col-md-4">
+                <!-- -->
+                <div class="mb-3 mt-3">
+                    <div for="createProfiles_visaWorkAuth_visaExpiry" class="form-label"><b>Visa Expiry:</b>
+                            <span class="font-red fs12 mt3p float-end"><i>[Required Field]</i></span> 
+                    </div>
+                    <input type="date" class="form-control" id="createProfiles_visaWorkAuth_visaExpiry" />
+                </div>
+                <!-- -->
+            </div><!--/.col-md-4 -->
+        </div><!--/.row -->
+        <div class="row">
+            <div class="col-md-4">
+                <!-- -->
+                <div class="mb-3 mt-3">
+                    <div for="createProfiles_visaWorkAuth_workAuthData" class="form-label"><b>Work Authorization:</b>
+                            <span class="font-red fs12 mt3p float-end"><i>[Required Field]</i></span> 
+                    </div>
+                    <div>
+                        <input class="form-check-input" type="checkbox" id="opt" value="OPT" style="width:25px;height:25px;cursor:pointer;">
+                        <label class="form-check-label" for="opt" style="padding-top:5px;padding-left:5px;">OPT / Post-Study Work Permit</label>
+                    </div>
+                    <div>
+                        <input class="form-check-input" type="checkbox" id="sponsorship" value="Needs Sponsorship" style="width:25px;height:25px;cursor:pointer;">
+                        <label class="form-check-label" for="sponsorship" style="padding-top:5px;padding-left:5px;">Needs Employer Sponsorship</label>
+                    </div>
+                    <div>
+                        <input class="form-check-input" type="checkbox" id="pr" value="Permanent Resident" style="width:25px;height:25px;cursor:pointer;">
+                        <label class="form-check-label" for="pr" style="padding-top:5px;padding-left:5px;">Permanent Resident / PR Holder</label>
+                    </div>
+                </div>
+                <!-- -->
+            </div><!--/.col-md-4 -->
+            <div class="col-md-4">
+                <!-- -->
+                <div class="mb-3 mt-3">
+                    <div for="createProfiles_visaWorkAuth_visaExpiry" class="form-label"><b>Eligible for Employer Sponsorship?</b>
+                            <span class="font-red fs12 mt3p float-end"><i>[Required Field]</i></span> 
+                    </div>
+                    <select class="form-select" id="createProfiles_visaWorkAuth_visaSponsorship">
+                        <option value="">Select</option>
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select>
+                </div>
+                <!-- -->
+            </div><!--/.col-md-4 -->
+        </div><!--/.row -->
+        <div class="row">
+            <div class="col-md-12">
+                <!-- -->
+                <div class="mb-3 mt-3">
+                    <div for="createProfiles_visaWorkAuth_visaNotes" class="form-label"><b>Additional Notes</b>
+                            <span class="font-red fs12 mt3p float-end"><i>[Required Field]</i></span> 
+                    </div>
+                    <textarea class="form-control" id="createProfiles_visaWorkAuth_visaNotes" rows="3"
+                        placeholder="e.g. OPT valid until Dec 2026, STEM extension eligible"></textarea>
+                </div>
+                <!-- -->
+            </div><!--/.col-md-12 -->
+        </div><!--/.row-->
+        </div>
     </div><!--/.card-body-->
 </div><!--/.card -->
 </div><!--/.col-md-12-->

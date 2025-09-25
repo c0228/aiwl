@@ -83,6 +83,7 @@ function save_createProfile_empDetails(){
 }
 function next_createProfile_empDetails(){
  sel_createProfile_leftMenu('visa_details');
+ load_countries_list("createProfiles_visaWorkAuth");
 }
 /* ------ EMPLOYEE'S DETAILS ::: END ----------------------------------- */
 /* ------ VISA DETAILS ::: START ----------------------------------- */

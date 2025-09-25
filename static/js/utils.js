@@ -65,11 +65,20 @@ function load_states_list(prefix){
  const country = document.getElementById(prefix+"_country").value;
  const status = (country.length>0)?'block':'none';
  document.getElementById(prefix+"_states_module").style.display = status;
- api_executor('http://localhost/apis/get/'+country+'/states',(data)=>{
+ api_executor('http://localhost/apis/get/'+country+'/data',(data)=>{
 	document.getElementById(prefix+"_mobile_index").innerHTML = data?.["tel_index"];
 	load_select_options(prefix+'_state', 'Select your State', data?.["states"]);
  });
 }
+
+function load_visaType_list(prefix){
+ const country = document.getElementById(prefix+"_country").value;
+ document.getElementById(prefix+"_visaType_module").style.display = 'block';
+ api_executor('http://localhost/apis/get/'+country+'/data',(data)=>{
+	load_select_options(prefix+'_visaType', 'Select Visa Type', data?.["visa_types"]);
+ });
+}
+
 
 function load_form_alert(id,type,data){
  let content='<div class="alert alert-'+type+' alert-dismissible">';
