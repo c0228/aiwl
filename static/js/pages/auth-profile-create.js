@@ -78,6 +78,7 @@ function previous_createProfile_eduDetails(){
 function save_createProfile_eduDetails(){
  document.getElementById("createProfile_formNextBtn_eduDetails").style.display='inline-block';
  // Data Validation and Saving into File in data Folder by Unlocking by giving data to Backend
+ // ACADEMIC_RECORD_INDEX
 }
 function next_createProfile_eduDetails(){
  sel_createProfile_leftMenu('emp_details');
@@ -256,6 +257,7 @@ function previous_createProfile_empDetails(){
 function save_createProfile_empDetails(){
  document.getElementById("createProfile_formNextBtn_empDetails").style.display='inline-block';
  // Data Validation and Saving into File in data Folder by Unlocking by giving data to Backend
+ // EMPLOYER_RECORD_INDEX
 }
 function next_createProfile_empDetails(){
  sel_createProfile_leftMenu('visa_details');
