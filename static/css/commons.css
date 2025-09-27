@@ -6,3 +6,5 @@ body { background-color: #f1f1f1; }
 .font-red { color:red; }
 .curpoint { cursor:pointer; }
 .fWBold { font-weight: bold; }
+.invalid-form { border: 1px solid red; }
+.valid-form { border: 1px solid #07c507; }

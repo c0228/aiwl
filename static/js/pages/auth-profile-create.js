@@ -1,3 +1,20 @@
+const CREATE_PROFILE_DATA = {
+ profileId: PROFILE_ID,
+ personalDetails:{},
+ eduDetails:[],
+ empDetails:[],
+ visaDetails:{},
+ techStackDetails:{},
+ createdOn: '',
+ updatedOn: ''
+};
+
+/* ----- ON PAGE LOAD ::: START --------------------------------------------------------*/
+$(document).ready(function(){
+    load_countries_list('createProfile_personalDetails');
+    load_createProfile_leftMenu('createProfile_leftMenu', 'personal_details');
+});
+
 /* ------ PERSONAL DETAILS ::: START ----------------------------------------------- */
 const LOAD_CREATEPROFILE_LEFTMENUDATA = [{
     id: "personal_details",
@@ -55,7 +72,6 @@ function load_createProfile_leftMenu(id, activeId) {
  document.getElementById(menuView).style.display='block';
 }
 function save_createProfile_personalDetails(){
- document.getElementById("createProfile_formNextBtn_personalDetails").style.display='inline-block';
  // Data Validation and Saving into File in data Folder by Unlocking by giving data to Backend
  const name = document.getElementById("createProfile_personalDetails_name").value;
  const email = document.getElementById("createProfile_personalDetails_email").value;
@@ -63,7 +79,53 @@ function save_createProfile_personalDetails(){
  const state = document.getElementById("createProfile_personalDetails_state").value;
  const mobileIndex = document.getElementById("createProfile_personalDetails_mobile_index").textContent;
  const mobile = document.getElementById("createProfile_personalDetails_mobile").value;
- 
+
+ if(name?.length>0 && email?.length>0 && country?.length>0 && state?.length>0 && mobileIndex?.length>0 && 
+   mobile?.length>0){
+      $('#createProfile_personalDetails_name').addClass('valid-form');
+      $('#createProfile_personalDetails_email').addClass('valid-form');
+      $('#createProfile_personalDetails_country').addClass('valid-form');
+      $('#createProfile_personalDetails_state').addClass('valid-form');
+      $('#createProfile_personalDetails_mobile_index').addClass('valid-form');
+      $('#createProfile_personalDetails_mobile').addClass('valid-form');
+
+      CREATE_PROFILE_DATA["personalDetails"].name = name;
+      CREATE_PROFILE_DATA["personalDetails"].email = email;
+      CREATE_PROFILE_DATA["personalDetails"].country = country;
+      CREATE_PROFILE_DATA["personalDetails"].state = state;
+      CREATE_PROFILE_DATA["personalDetails"].mobile = mobileIndex+'-'+mobile;
+      console.log("CREATE_PROFILE_DATA", CREATE_PROFILE_DATA);
+
+      load_form_alert('createProfiles_form_alert', 'success', '<strong>Success!</strong> Your Personal Details got saved Successfully');
+      document.getElementById("createProfile_formNextBtn_personalDetails").style.display='inline-block';
+
+ } else {
+      let missingData='Missing';
+
+      if(name?.length === 0) { $('#createProfile_personalDetails_name').addClass('invalid-form');missingData+=' Name /'; }
+      else { $('#createProfile_personalDetails_name').addClass('valid-form'); }
+
+      if(email?.length === 0) { $('#createProfile_personalDetails_email').addClass('invalid-form');missingData+=' Email /'; }
+      else { $('#createProfile_personalDetails_email').addClass('valid-form'); }
+
+      if(country?.length === 0) { $('#createProfile_personalDetails_country').addClass('invalid-form');missingData+=' Country /'; }
+      else {
+         $('#createProfile_personalDetails_country').addClass('valid-form');
+         if(state?.length === 0) { $('#createProfile_personalDetails_state').addClass('invalid-form');missingData+=' State /'; }
+         else { $('#createProfile_personalDetails_state').addClass('valid-form'); }
+         if(mobile?.length === 0) { 
+            $('#createProfile_personalDetails_mobile_index').addClass('invalid-form');
+            $('#createProfile_personalDetails_mobile').addClass('invalid-form');
+            missingData+=' Mobile Number /'; 
+         } else {
+            $('#createProfile_personalDetails_mobile_index').addClass('valid-form');
+            $('#createProfile_personalDetails_mobile').addClass('valid-form');
+         }
+      }
+
+      load_form_alert('createProfiles_form_alert', 'danger', '<strong>Error!</strong> '+missingData.substring(0,missingData.length-1).trim());
+      document.getElementById("createProfile_formNextBtn_personalDetails").style.display='none';
+ }
 }
 function next_createProfile_personalDetails(){
  sel_createProfile_leftMenu('edu_qualifications');

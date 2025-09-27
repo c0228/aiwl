@@ -1,5 +1,7 @@
 from flask import Blueprint, request, jsonify, render_template
 from src.utils.Logger import log_message, HTTP_LOG_ID
+from src.settings.constants import DATA_DIR
+from src.utils.NamingConventions import generate_unique_profile_id
 
 auth_bp = Blueprint("auth", __name__)
 
@@ -54,8 +56,9 @@ def manageProfile():
 
 @auth_bp.route("/auth/profile/create")
 def createProfile():
-    log_message(HTTP_LOG_ID, "Triggered Basic Route - Hello World")
-    return render_template("auth-profile-create.html")
+    profileId = generate_unique_profile_id(DATA_DIR)
+    log_message(HTTP_LOG_ID, "Triggered Basic Route -${DATA_DIR}")
+    return render_template("auth-profile-create.html", profileId=profileId)
 
 @auth_bp.route("/auth/manage/footage")
 def manageFootage():
